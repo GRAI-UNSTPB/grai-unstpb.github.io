@@ -208,10 +208,11 @@
         <a href="https://huggingface.co/GRAI-UNSTPB">Hugging Face</a>
         <a href="https://github.com/GRAI-UNSTPB">GitHub</a>
     </div>
-    © 2026 GRAI-UNSTPB. All rights reserved.
+    © <span id="year"></span> GRAI-UNSTPB. All rights reserved.
 </footer>
 
 <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
     // Check if native smooth scrolling is actually functional (not disabled by a flag)
     const isNativeSmoothFunctional = (() => {
         if (!('scrollBehavior' in document.documentElement.style)) return false;
