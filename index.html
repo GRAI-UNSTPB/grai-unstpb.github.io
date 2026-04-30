@@ -212,14 +212,31 @@
 </footer>
 
 <script>
-    // Manual smooth scrolling handler for environments with smooth-scrolling disabled
+    // Check if native smooth scrolling is actually functional (not disabled by a flag)
+    const isNativeSmoothFunctional = (() => {
+        if (!('scrollBehavior' in document.documentElement.style)) return false;
+        const testDiv = document.createElement('div');
+        testDiv.style.cssText = 'position:fixed;top:0;height:1px;width:1px;overflow:scroll;visibility:hidden;pointer-events:none;';
+        document.body.appendChild(testDiv);
+        const content = document.createElement('div');
+        content.style.height = '10px';
+        testDiv.appendChild(content);
+        testDiv.scrollTo({ top: 5, behavior: 'smooth' });
+        const isSmooth = testDiv.scrollTop === 0;
+        document.body.removeChild(testDiv);
+        return isSmooth;
+    })();
+
+    // Hybrid smooth scrolling handler
     document.querySelectorAll('.scroll-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            if (isNativeSmoothFunctional) return;
+
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
 
+            e.preventDefault();
             const navHeight = document.querySelector('nav').offsetHeight;
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
             const startPosition = window.pageYOffset;
