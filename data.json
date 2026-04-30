@@ -1,0 +1,112 @@
+{
+    "projects": [
+        {
+            "title": "RoD-TAL",
+            "icon": "fas fa-gavel",
+            "description": "Benchmark for Romanian Driving License Exams. Features question-answering, dense legal retrieval, and multimodal reasoning.",
+            "links": [
+                {
+                    "label": "Paper",
+                    "url": "https://aclanthology.org/2026.findings-eacl.295/",
+                    "icon": "fas fa-file-pdf"
+                },
+                {
+                    "label": "Dataset",
+                    "url": "https://huggingface.co/datasets/GRAI-UNSTPB/RoD-TAL",
+                    "icon": "fas fa-database"
+                },
+                {
+                    "label": "Model",
+                    "url": "https://huggingface.co/GRAI-UNSTPB/multilingual-e5-small-RoD-TAL",
+                    "icon": "fas fa-microchip"
+                },
+                {
+                    "label": "Source",
+                    "url": "https://github.com/vladman-25/RoD-TAL",
+                    "icon": "fab fa-github"
+                }
+            ]
+        },
+        {
+            "title": "SeLeRoSa",
+            "icon": "fas fa-newspaper",
+            "description": "The first sentence-level Romanian satire detection dataset, addressing granular irony and misinformation in news.",
+            "links": [
+                {
+                    "label": "Paper",
+                    "url": "https://doi.org/10.1145/3746252.3761632",
+                    "icon": "fas fa-file-pdf"
+                },
+                {
+                    "label": "Dataset",
+                    "url": "https://huggingface.co/datasets/GRAI-UNSTPB/SeLeRoSa",
+                    "icon": "fas fa-database"
+                },
+                {
+                    "label": "Source",
+                    "url": "https://github.com/GRAI-UNSTPB/SeLeRoSa",
+                    "icon": "fab fa-github"
+                }
+            ]
+        },
+        {
+            "title": "Complex Word Identification",
+            "icon": "fas fa-language",
+            "description": "Research on multilingual and multi-domain complex word identification and lexical simplification using Large Language Models.",
+            "links": [
+                {
+                    "label": "Paper",
+                    "url": "https://aclanthology.org/2024.emnlp-main.933/",
+                    "icon": "fas fa-file-pdf"
+                },
+                {
+                    "label": "Collection",
+                    "url": "https://huggingface.co/collections/GRAI-UNSTPB/llms-for-complex-word-identification-66191986429535359196b27e",
+                    "icon": "fas fa-layer-group"
+                }
+            ]
+        }
+    ],
+    "publications": [
+        {
+            "title": "RoD-TAL: A Benchmark for Answering Questions in Romanian Driving License Exams",
+            "authors": "AV Man, RA Smădu, CG Craciun, DC Cercel, F Pop, MC Cercel",
+            "venue": "Findings of the Association for Computational Linguistics: EACL 2026",
+            "url": "https://aclanthology.org/2026.findings-eacl.295/",
+            "doi": "https://doi.org/10.18653/v1/2026.findings-eacl.295"
+        },
+        {
+            "title": "SeLeRoSa: Sentence-Level Romanian Satire Detection Dataset",
+            "authors": "RA Smădu, A Iuga, DC Cercel, F Pop",
+            "venue": "Proceedings of the 34th ACM International Conference on Information and Knowledge Management (CIKM) 2025",
+            "url": "https://doi.org/10.1145/3746252.3761632",
+            "doi": "https://doi.org/10.1145/3746252.3761632"
+        },
+        {
+            "title": "GRAF: Graph Retrieval Augmented by Facts for Romanian Legal Multi-Choice Question Answering",
+            "authors": "CG Craciun, RA Smădu, DC Cercel, MC Cercel",
+            "venue": "Findings of the Association for Computational Linguistics: ACL 2025",
+            "url": "https://aclanthology.org/2025.findings-acl.659/",
+            "doi": "https://doi.org/10.18653/v1/2025.findings-acl.659"
+        },
+        {
+            "title": "Investigating Large Language Models for Complex Word Identification in Multilingual and Multidomain Setups",
+            "authors": "RA Smădu, DG Ion, DC Cercel, F Pop, MC Cercel",
+            "venue": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP) 2024",
+            "url": "https://aclanthology.org/2024.emnlp-main.933/",
+            "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.933"
+        }
+    ],
+    "team": [
+        {
+            "name": "Dumitru-Clementin Cercel",
+            "role": "Associate Professor",
+            "icon": "fas fa-user-tie"
+        },
+        {
+            "name": "Răzvan-Alexandru Smădu",
+            "role": "PhD Student",
+            "icon": "fas fa-user-graduate"
+        }
+    ]
+}

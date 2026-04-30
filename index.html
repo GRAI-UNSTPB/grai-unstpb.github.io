@@ -1,10 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GRAI - Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAI-UNSTPB | Research Group for Applications and Innovation in Multimodal AI</title>
+    <link rel="icon" type="image/png" href="assets/icon_light.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #041E42;
+            --accent-blue: #2B5A8A;
+            --slate-grey: #4A5568;
+            --bg-light: #F8FAFC;
+            --text-dark: #1A202C;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-weight: 800; color: var(--primary-navy); font-size: 1.1rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-grey);
+            margin-left: 2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        header { background: white; padding: 4rem 0; text-align: center; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .logo { max-width: 400px; height: auto; }
+
+        section { padding: 5rem 0; }
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary-navy);
+            margin-bottom: 4rem;
+        }
+
+        .hero { text-align: center; background: white; padding-top: 0; }
+        .hero p { font-size: 1.15rem; color: var(--slate-grey); max-width: 800px; margin: 0 auto; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--accent-blue);
+        }
+        .card-icon { color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 1rem; }
+        .card h3 { margin: 0 0 1rem 0; color: var(--primary-navy); font-size: 1.3rem; }
+        .card p { color: var(--slate-grey); flex-grow: 1; font-size: 0.95rem; margin-bottom: 2rem; }
+        
+        .card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .card-link {
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #E2E8F0;
+            color: var(--slate-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .card-link:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        .paper-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+        .paper-title { font-weight: 700; color: var(--primary-navy); font-size: 1.1rem; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .paper-title:hover { text-decoration: underline; }
+        .paper-authors { font-size: 0.9rem; color: var(--slate-grey); display: block; margin-bottom: 0.5rem; }
+        .paper-venue { font-weight: 700; color: var(--accent-blue); font-size: 0.8rem; text-transform: uppercase; }
+        
+        .doi-link { text-decoration: none; color: inherit; font-weight: 400; opacity: 0.6; margin-left: 0.5rem; }
+        .doi-link:hover { opacity: 1; color: var(--primary-navy); text-decoration: underline; }
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center; }
+        .team-member .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #F1F5F9;
+            color: #CBD5E1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .team-member h4 { margin: 0; color: var(--primary-navy); font-size: 1rem; }
+        .team-member span { font-size: 0.75rem; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; }
+
+        footer { background: var(--primary-navy); color: white; text-align: center; padding: 4rem 0; font-size: 0.8rem; }
+        .footer-links { margin-bottom: 3rem; }
+        .footer-links a { color: white; margin: 0 1rem; text-decoration: none; opacity: 0.6; font-weight: 700; }
+        .footer-links a:hover { opacity: 1; }
+
+        @media (prefers-color-scheme: dark) {
+            :root { --accent-blue: #60A5FA; }
+            body { background-color: #0F172A; color: #E2E8F0; }
+            nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-color: #1E293B; }
+            header, .hero, .card, .paper-item, .team-member .avatar-placeholder { background-color: #1E293B; border-color: #334155; }
+            .section-title, .card h3, .paper-title, .team-member h4 { color: white; }
+        }
+    </style>
 </head>
 <body>
+
+<nav>
+    <div class="container">
+        <div class="nav-brand">GRAI-UNSTPB</div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#team">Team</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="assets/logo_dark.png">
+            <source media="(prefers-color-scheme: light)" srcset="assets/logo_light.png">
+            <img src="assets/logo_light.png" alt="GRAI Logo" class="logo">
+        </picture>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <p>
+            The <strong>Research Group for Applications and Innovation in Multimodal AI (GRAI-UNSTPB)</strong> at the National University of Science and Technology Politehnica Bucharest specializes in Multimodal AI, Romanian NLP, and Domain-Specific Legal Benchmarks.
+        </p>
+    </div>
+</section>
+
+<div class="container">
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div id="projects-grid" class="grid"></div>
+    </section>
+
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div id="publications-list"></div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title">Team</h2>
+        <div id="team-grid" class="team-grid"></div>
+    </section>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://huggingface.co/GRAI-UNSTPB">Hugging Face</a>
+        <a href="https://github.com/GRAI-UNSTPB">GitHub</a>
+    </div>
+    © 2026 GRAI-UNSTPB
+</footer>
+
+<script>
+    async function loadData() {
+        try {
+            const response = await fetch('data.json');
+            const data = await response.json();
+
+            const projectsGrid = document.getElementById('projects-grid');
+            data.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-icon"><i class="${project.icon}"></i></div>
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="card-links">
+                        ${project.links.map(link => `
+                            <a href="${link.url}" class="card-link"><i class="${link.icon}"></i> ${link.label}</a>
+                        `).join('')}
+                    </div>
+                `;
+                projectsGrid.appendChild(card);
+            });
+
+            const pubList = document.getElementById('publications-list');
+            data.publications.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'paper-item';
+                item.innerHTML = `
+                    <a href="${pub.url}" class="paper-title">${pub.title}</a>
+                    <span class="paper-authors">${pub.authors}</span>
+                    <span class="paper-venue">
+                        ${pub.venue}
+                        <a href="${pub.doi}" class="doi-link">[DOI <i class="fas fa-external-link-alt" style="font-size: 0.65rem;"></i>]</a>
+                    </span>
+                `;
+                pubList.appendChild(item);
+            });
+
+            const teamGrid = document.getElementById('team-grid');
+            data.team.forEach(member => {
+                const div = document.createElement('div');
+                div.className = 'team-member';
+                div.innerHTML = `
+                    <div class="avatar-placeholder"><i class="${member.icon}"></i></div>
+                    <h4>${member.name}</h4>
+                    <span>${member.role}</span>
+                `;
+                teamGrid.appendChild(div);
+            });
+        } catch (error) {
+            console.error('Error loading data.json:', error);
+        }
+    }
+
+    window.onload = loadData;
+</script>
+
 </body>
 </html>
