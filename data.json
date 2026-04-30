@@ -30,7 +30,7 @@
         {
             "title": "SeLeRoSa",
             "icon": "fas fa-newspaper",
-            "description": "The first sentence-level Romanian satire detection dataset, addressing granular irony and misinformation in news.",
+            "description": "The first sentence-level Romanian satire detection dataset, addressing granular satire in news.",
             "links": [
                 {
                     "label": "Paper",
@@ -39,7 +39,7 @@
                 },
                 {
                     "label": "Dataset",
-                    "url": "https://huggingface.co/datasets/GRAI-UNSTPB/SeLeRoSa",
+                    "url": "https://huggingface.co/collections/GRAI-UNSTPB/selerosa-sentence-level-romanian-satire-detection-dataset",
                     "icon": "fas fa-database"
                 },
                 {
@@ -63,6 +63,11 @@
                     "label": "Collection",
                     "url": "https://huggingface.co/collections/GRAI-UNSTPB/llms-for-complex-word-identification-66191986429535359196b27e",
                     "icon": "fas fa-layer-group"
+                },
+                {
+                    "label": "Source",
+                    "url": "https://github.com/razvanalex-phd/cwi_llm",
+                    "icon": "fab fa-github"
                 }
             ]
         }
