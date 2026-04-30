@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
+    <meta name="description" content="GRAI-UNSTPB brings together researchers from the National University of Science and Technology POLITEHNICA Bucharest working on multimodal AI, Romanian NLP, open datasets, benchmarks, and models.">
+    <meta name="author" content="GRAI-UNSTPB">
+    <link rel="canonical" href="https://grai-unstpb.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grai-unstpb.github.io/">
+    <meta property="og:title" content="GRAI-UNSTPB | Multimodal AI and Romanian NLP">
+    <meta property="og:description" content="Open research resources, datasets, models, and publications from researchers at the National University of Science and Technology POLITEHNICA Bucharest.">
+    <meta property="og:image" content="https://grai-unstpb.github.io/assets/logo_light.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GRAI-UNSTPB | Multimodal AI and Romanian NLP">
+    <meta name="twitter:description" content="Open research resources, datasets, models, and publications from researchers at the National University of Science and Technology POLITEHNICA Bucharest.">
+    <meta name="twitter:image" content="https://grai-unstpb.github.io/assets/logo_light.png">
     <title>GRAI-UNSTPB | Research Group for Applications and Innovation in Multimodal AI</title>
     <link rel="icon" type="image/png" href="assets/icon_light.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,12 +61,12 @@
             align-items: center;
         }
 
-        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .nav-brand { font-weight: 800; color: var(--primary-navy); font-size: 1.1rem; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1.5rem; }
+        .nav-brand { font-weight: 800; color: var(--primary-navy); font-size: 1.1rem; line-height: 1.25; }
+        .nav-links { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: flex-end; }
         .nav-links a {
             text-decoration: none;
             color: var(--slate-grey);
-            margin-left: 2rem;
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -63,7 +75,7 @@
 
         header { background: white; padding: 4rem 0; text-align: center; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-        .logo { max-width: 400px; height: auto; }
+        .logo { width: min(400px, 100%); max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
         section { padding: 5rem 0; }
         .section-title {
@@ -72,13 +84,20 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--primary-navy);
-            margin-bottom: 4rem;
+            margin: 0 0 4rem;
+        }
+        .section-intro {
+            max-width: 720px;
+            margin: -2.5rem auto 3rem;
+            text-align: center;
+            color: var(--slate-grey);
+            font-size: 0.98rem;
         }
 
         .hero { text-align: center; background: white; padding-top: 0; }
         .hero p { font-size: 1.15rem; color: var(--slate-grey); max-width: 800px; margin: 0 auto; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 2rem; }
         .card {
             background: white;
             padding: 2.5rem;
@@ -160,6 +179,29 @@
             .team-link:hover .avatar-placeholder { background: #334155; color: var(--accent-blue); }
             .section-title, .card h3, .paper-title, .team-member h4, .nav-brand { color: white; }
         }
+
+        @media (max-width: 640px) {
+            :root { --nav-height: 96px; }
+            nav { min-height: var(--nav-height); height: auto; }
+            nav .container { align-items: flex-start; padding-top: 0.85rem; padding-bottom: 0.85rem; gap: 1rem; }
+            .nav-brand { max-width: 8rem; }
+            .nav-links { gap: 0.55rem 1rem; justify-content: flex-end; }
+            .nav-links a { font-size: 0.78rem; letter-spacing: 0.35px; }
+            .container { padding: 0 1.5rem; }
+            header { padding: 3rem 0 2.25rem; }
+            section { padding: 4rem 0; }
+            .hero p { font-size: 1.05rem; }
+            .section-title { margin-bottom: 3rem; }
+            .section-intro { margin-top: -1.75rem; margin-bottom: 2.5rem; }
+            .card, .paper-item { padding: 2rem; }
+        }
+
+        @media (max-width: 380px) {
+            .container { padding: 0 1rem; }
+            .nav-links { gap: 0.45rem 0.75rem; }
+            .nav-links a { font-size: 0.72rem; }
+            .card, .paper-item { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -188,7 +230,7 @@
 <section class="hero">
     <div class="container">
         <p>
-            At the <strong>Research Group for Applications and Innovation in Multimodal AI (GRAI-UNSTPB)</strong>, we advance the frontiers of <strong>Multimodal AI</strong> and <strong>Romanian NLP</strong>.  We bridge the gap between academic innovation and practical impact through open-source benchmarks, specialized datasets, and deep learning models.
+            At the <strong>Research Group for Applications and Innovation in Multimodal AI (GRAI-UNSTPB)</strong>, our team of researchers from the <strong>National University of Science and Technology POLITEHNICA Bucharest</strong> advances <strong>Multimodal AI</strong> and <strong>Romanian NLP</strong> through open benchmarks, specialized datasets, and deep learning models.
         </p>
     </div>
 </section>
@@ -196,11 +238,13 @@
 <div class="container">
     <section id="projects">
         <h2 class="section-title">Projects</h2>
+        <p class="section-intro">Open research resources built around our work: datasets, benchmarks, models, and source code intended for reuse by the community.</p>
         <div id="projects-grid" class="grid"></div>
     </section>
 
     <section id="publications">
         <h2 class="section-title">Publications</h2>
+        <p class="section-intro">Peer-reviewed papers in competitive NLP and AI venues, including ACL, EMNLP, EACL, and CIKM.</p>
         <div id="publications-list"></div>
     </section>
 
@@ -212,8 +256,8 @@
 
 <footer>
     <div class="footer-links">
-        <a href="https://huggingface.co/GRAI-UNSTPB">Hugging Face</a>
-        <a href="https://github.com/GRAI-UNSTPB">GitHub</a>
+        <a href="https://huggingface.co/GRAI-UNSTPB" target="_blank" rel="noopener noreferrer">Hugging Face</a>
+        <a href="https://github.com/GRAI-UNSTPB" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
     © <span id="year"></span> GRAI-UNSTPB. All rights reserved.
 </footer>
@@ -285,7 +329,7 @@
                     <p>${project.description}</p>
                     <div class="card-links">
                         ${project.links.map(link => `
-                            <a href="${link.url}" class="card-link"><i class="${link.icon}"></i> ${link.label}</a>
+                            <a href="${link.url}" class="card-link" target="_blank" rel="noopener noreferrer"><i class="${link.icon}"></i> ${link.label}</a>
                         `).join('')}
                     </div>
                 `;
@@ -297,11 +341,11 @@
                 const item = document.createElement('div');
                 item.className = 'paper-item';
                 item.innerHTML = `
-                    <a href="${pub.url}" class="paper-title">${pub.title}</a>
+                    <a href="${pub.url}" class="paper-title" target="_blank" rel="noopener noreferrer">${pub.title}</a>
                     <span class="paper-authors">${pub.authors}</span>
                     <span class="paper-venue">
                         ${pub.venue}
-                        <a href="${pub.doi}" class="doi-link">[DOI <i class="fas fa-external-link-alt" style="font-size: 0.65rem;"></i>]</a>
+                        <a href="${pub.doi}" class="doi-link" target="_blank" rel="noopener noreferrer">[DOI <i class="fas fa-external-link-alt" style="font-size: 0.65rem;"></i>]</a>
                     </span>
                 `;
                 pubList.appendChild(item);
@@ -315,7 +359,7 @@
                     ? `<img src="${member.image}" alt="${member.name}">`
                     : `<i class="${member.icon}"></i>`;
                 div.innerHTML = `
-                    <a href="${member.url}" class="team-link" target="_blank">
+                    <a href="${member.url}" class="team-link" target="_blank" rel="noopener noreferrer">
                         <div class="avatar-placeholder">${avatarContent}</div>
                         <h4>${member.name}</h4>
                         <span>${member.role}</span>
