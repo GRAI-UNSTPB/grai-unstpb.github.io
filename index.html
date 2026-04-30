@@ -14,30 +14,41 @@
             --bg-light: #F8FAFC;
             --text-dark: #1A202C;
             --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --nav-height: 70px;
         }
 
         * { box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
             margin: 0;
-            scroll-behavior: smooth;
+        }
+
+        section[id] {
+            scroll-margin-top: var(--nav-height);
         }
 
         nav {
             position: sticky;
             top: 0;
+            height: var(--nav-height);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid #E2E8F0;
             z-index: 1000;
-            padding: 1rem 0;
+            display: flex;
+            align-items: center;
         }
 
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .nav-brand { font-weight: 800; color: var(--primary-navy); font-size: 1.1rem; }
         .nav-links a {
             text-decoration: none;
@@ -146,9 +157,9 @@
     <div class="container">
         <div class="nav-brand">GRAI-UNSTPB</div>
         <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#publications">Publications</a>
-            <a href="#team">Team</a>
+            <a href="#projects" class="scroll-link">Projects</a>
+            <a href="#publications" class="scroll-link">Publications</a>
+            <a href="#team" class="scroll-link">Team</a>
         </div>
     </div>
 </nav>
@@ -197,6 +208,39 @@
 </footer>
 
 <script>
+    // Manual smooth scrolling handler for environments with smooth-scrolling disabled
+    document.querySelectorAll('.scroll-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 600;
+            let start = null;
+
+            window.requestAnimationFrame(step);
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                if (progress < duration) window.requestAnimationFrame(step);
+            }
+
+            function easeInOutCubic(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            };
+        });
+    });
+
     async function loadData() {
         try {
             const response = await fetch('data.json');
