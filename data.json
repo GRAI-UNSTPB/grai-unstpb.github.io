@@ -101,12 +101,14 @@
         {
             "name": "Dumitru-Clementin Cercel",
             "role": "Associate Professor",
-            "icon": "fas fa-user-tie"
+            "icon": "fas fa-user-tie",
+            "url": "https://scholar.google.com/citations?user=jdsY1HEAAAAJ"
         },
         {
             "name": "Răzvan-Alexandru Smădu",
             "role": "PhD Student",
-            "icon": "fas fa-user-graduate"
+            "icon": "fas fa-user-graduate",
+            "url": "https://scholar.google.com/citations?user=YiICQBYAAAAJ"
         }
     ]
 }

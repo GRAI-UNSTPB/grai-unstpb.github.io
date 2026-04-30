@@ -106,6 +106,8 @@
         .doi-link:hover { opacity: 1; color: var(--primary-navy); text-decoration: underline; }
 
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center; }
+        .team-link { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        .team-link:hover { opacity: 0.8; }
         .team-member .avatar-placeholder {
             width: 120px;
             height: 120px;
@@ -116,8 +118,11 @@
             justify-content: center;
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            transition: background 0.2s, color 0.2s;
         }
+        .team-link:hover .avatar-placeholder { background: #E2E8F0; color: var(--accent-blue); }
         .team-member h4 { margin: 0; color: var(--primary-navy); font-size: 1rem; }
+        .team-link:hover h4 { text-decoration: underline; }
         .team-member span { font-size: 0.75rem; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; }
 
         footer { background: var(--primary-navy); color: white; text-align: center; padding: 4rem 0; font-size: 0.8rem; }
@@ -130,6 +135,7 @@
             body { background-color: #0F172A; color: #E2E8F0; }
             nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-color: #1E293B; }
             header, .hero, .card, .paper-item, .team-member .avatar-placeholder { background-color: #1E293B; border-color: #334155; }
+            .team-link:hover .avatar-placeholder { background: #334155; color: var(--accent-blue); }
             .section-title, .card h3, .paper-title, .team-member h4 { color: white; }
         }
     </style>
@@ -233,9 +239,11 @@
                 const div = document.createElement('div');
                 div.className = 'team-member';
                 div.innerHTML = `
-                    <div class="avatar-placeholder"><i class="${member.icon}"></i></div>
-                    <h4>${member.name}</h4>
-                    <span>${member.role}</span>
+                    <a href="${member.url}" class="team-link" target="_blank">
+                        <div class="avatar-placeholder"><i class="${member.icon}"></i></div>
+                        <h4>${member.name}</h4>
+                        <span>${member.role}</span>
+                    </a>
                 `;
                 teamGrid.appendChild(div);
             });
