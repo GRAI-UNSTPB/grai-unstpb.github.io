@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>GRAI-UNSTPB | Research Group for Applications and Innovation in Multimodal AI</title>
     <link rel="icon" type="image/png" href="assets/icon_light.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -142,12 +143,15 @@
         .footer-links a:hover { opacity: 1; }
 
         @media (prefers-color-scheme: dark) {
-            :root { --accent-blue: #60A5FA; }
+            :root { 
+                --accent-blue: #60A5FA;
+                --slate-grey: #CBD5E1;
+            }
             body { background-color: #0F172A; color: #E2E8F0; }
             nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-color: #1E293B; }
             header, .hero, .card, .paper-item, .team-member .avatar-placeholder { background-color: #1E293B; border-color: #334155; }
             .team-link:hover .avatar-placeholder { background: #334155; color: var(--accent-blue); }
-            .section-title, .card h3, .paper-title, .team-member h4 { color: white; }
+            .section-title, .card h3, .paper-title, .team-member h4, .nav-brand { color: white; }
         }
     </style>
 </head>
